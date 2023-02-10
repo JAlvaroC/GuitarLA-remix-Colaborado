@@ -1,0 +1,24 @@
+// export async function getGuitarras() {
+//     const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
+//     return await respuesta.json()
+// }
+
+// export async function getGuitarra(url) {
+//     const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=imagen`)
+//     return await respuesta.json()
+// }
+
+
+export async  function getGuitarras() {
+    // const respuesta = await fetch( `${process.env.API_URL}/guitarras?populate=imagen`)
+    // const respuesta = await fetch( `${process.env.API_URL}/guitarras/4?populate=*`)
+    const respuesta = await fetch( `${process.env.API_URL}/guitarras?populate=*`)
+    const resultado = await respuesta.json()
+  
+  return resultado
+}
+
+export async function getGuitarra(url){
+    const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=*`)
+    return await respuesta.json()
+}
